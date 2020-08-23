@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1_GenericType
 {
@@ -10,6 +6,30 @@ namespace _1_GenericType
     {
         static void Main(string[] args)
         {
+            var queue = new CircleQueue(capacity: 3);
+
+            while (true)
+            {
+
+                var value = 0.0;
+                var startValue = Console.ReadLine();
+
+                if (double.TryParse(startValue, out value))
+                {
+                    queue.SaveValue(value);
+                    continue;
+                }
+                break;
+
+            }
+
+            Console.WriteLine("W naszej kolejce znajdują się: ");
+
+            while (!queue.IsEmpty)
+            {
+                Console.WriteLine("\t\t" + queue.ReadValue());
+            }
+            Console.ReadKey();
         }
     }
 }

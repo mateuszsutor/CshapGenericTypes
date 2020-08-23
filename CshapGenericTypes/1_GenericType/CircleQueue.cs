@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _1_GenericType
 {
-    public class CircleQueue
+    public class CircleQueue<T>
     {
-        private double[] buffer;
+        private T[] buffer;
         private int startBuffer;
         private int endBuffer;
 
@@ -19,12 +19,12 @@ namespace _1_GenericType
 
         public CircleQueue(int capacity)
         {
-            buffer = new double[capacity + 1];
+            buffer = new T[capacity + 1];
             startBuffer = 0;
             endBuffer = 0;
         }
 
-        public void SaveValue(double value)
+        public void SaveValue(T value)
         {
             buffer[endBuffer] = value;
             endBuffer = (endBuffer + 1) % buffer.Length;
@@ -36,7 +36,7 @@ namespace _1_GenericType
 
         }
 
-        public double ReadValue()
+        public T ReadValue()
         {
             var result = buffer[startBuffer];
             startBuffer = (startBuffer + 1) % buffer.Length;

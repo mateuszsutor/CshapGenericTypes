@@ -11,7 +11,7 @@ namespace GenrricTypeTest
         [TestMethod]
         public void NewQueueIsEmpty()
         {
-            var queue = new CircleQueue();
+            var queue = new CircleQueue<double>();
 
             Assert.IsTrue(queue.IsEmpty);
         }
@@ -19,7 +19,7 @@ namespace GenrricTypeTest
         [TestMethod]
         public void ThreeElementsQueueAfterAddThreeElementIsFull()
         {
-            var queue = new CircleQueue(capacity: 3);
+            var queue = new CircleQueue<double>(capacity: 3);
             queue.SaveValue(3.3);
             queue.SaveValue(5);
             queue.SaveValue(10.8);
@@ -31,7 +31,7 @@ namespace GenrricTypeTest
         [TestMethod]
         public void HasFirstElementAddToQueueIsFirstRead()
         {
-            var queue = new CircleQueue(capacity: 3);
+            var queue = new CircleQueue<double>(capacity: 3);
 
             var value1 = 8.8;
             var value2 = 5.1;
@@ -48,7 +48,7 @@ namespace GenrricTypeTest
         [TestMethod]
         public void HasOverwriteValueWhenCapacityIsExceed()
         {
-            var queue = new CircleQueue(capacity: 3);
+            var queue = new CircleQueue<double>(capacity: 3);
 
             var values = new[] { 1.8, 3.5, 5.1, 7.6, 9.1, 11.0 };
 

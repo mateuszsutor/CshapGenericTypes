@@ -36,28 +36,27 @@ namespace _2_GenericCollections
             #endregion
 
 
-            #region List<T> info
-            List<Employee> employessList = new List<Employee>
-            
+            #region Queue<T> info
+
+            Queue<Employee> employeesQueue = new Queue<Employee>();
+
+            //Dodawanie zawsze na koniec kolejki
+            employeesQueue.Enqueue(new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Tomasz", LastName = "Nowak" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Henryk", LastName = "Kania" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Ewa", LastName = "Zawadzka" });
+
+
+            while (employeesQueue.Count > 0)
             {
-                new Employee { FirstName = "Jan", LastName = "Kowalski" },
-                new Employee { FirstName = "Tomasz", LastName = "Nowak" },
-                new Employee { FirstName = "Ela", LastName = "Zawadzka" },
-            };
 
-
-            employessList.Add(new Employee {FirstName = "Ania", LastName = "Kot" });
-
-            foreach (var employee in employessList)
-            {
-                Console.WriteLine(employee.FirstName + " " + employee.LastName);
+                Console.WriteLine(employeesQueue.Dequeue().ToString());
             }
 
-            for (int i = 0; i < employessList.Count; i++)
-            {
-                Console.WriteLine(employessList[i].FirstName + " - " + employessList[i].LastName);
-            }
+            Console.WriteLine("Kojejka została wyczyszczona");
+
             #endregion
         }
     }
 }
+

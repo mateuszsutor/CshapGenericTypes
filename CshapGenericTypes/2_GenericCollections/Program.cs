@@ -62,23 +62,47 @@ namespace _2_GenericCollections
             #endregion
 
             #region Queue<T> info
+            //First In Fist Out  - FIFO
+            Queue<Employee> employeesQueue = new Queue<Employee>();
 
-            //Queue<Employee> employeesQueue = new Queue<Employee>();
+            //Dodawanie zawsze na koniec kolejki
+            employeesQueue.Enqueue(new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Tomasz", LastName = "Nowak" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Henryk", LastName = "Kania" });
+            employeesQueue.Enqueue(new Employee { FirstName = "Ewa", LastName = "Zawadzka" });
+           
+            Console.WriteLine("Kolejka");
 
-            ////Dodawanie zawsze na koniec kolejki
-            //employeesQueue.Enqueue(new Employee { FirstName = "Jan", LastName = "Kowalski" });
-            //employeesQueue.Enqueue(new Employee { FirstName = "Tomasz", LastName = "Nowak" });
-            //employeesQueue.Enqueue(new Employee { FirstName = "Henryk", LastName = "Kania" });
-            //employeesQueue.Enqueue(new Employee { FirstName = "Ewa", LastName = "Zawadzka" });
+            while (employeesQueue.Count > 0)
+            {
+
+                Console.WriteLine(employeesQueue.Dequeue().ToString());
+            }
+
+            Console.WriteLine("Kojejka została wyczyszczona");
+
+            #endregion
+
+            #region Stack<T> info
+            //Last In Last Out - LIFO
+            Stack<Employee> employeesStack = new Stack<Employee>();
+
+            employeesStack.Push(new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            employeesStack.Push(new Employee { FirstName = "Tomasz", LastName = "Nowak" });
+            employeesStack.Push(new Employee { FirstName = "Henryk", LastName = "Kania" });
+            employeesStack.Push(new Employee { FirstName = "Ewa", LastName = "Zawadzka" });
+
+            Console.WriteLine();
+            Console.WriteLine("Stos");
 
 
-            //while (employeesQueue.Count > 0)
-            //{
+            while (employeesStack.Count > 0)
+            {
 
-            //    Console.WriteLine(employeesQueue.Dequeue().ToString());
-            //}
+                Console.WriteLine(employeesStack.Pop().ToString());
+            }
 
-            //Console.WriteLine("Kojejka została wyczyszczona");
+            Console.WriteLine("Stos został wyczyszczony");
 
             #endregion
         }

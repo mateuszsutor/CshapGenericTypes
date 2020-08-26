@@ -13,7 +13,7 @@ namespace _2_GenericCollections
             //Stack();
             //HashSet();
 
-
+            
         }
 
         private static void HashSet()

@@ -7,13 +7,58 @@ namespace _2_GenericCollections
     {
         static void Main(string[] args)
         {
-
-
             //Array();
             //List();
             //Queue();
             //Stack();
+            //HashSet();
 
+
+        }
+
+        private static void HashSet()
+        {
+            #region HashSet <int>
+            //Nie pozwala na dublowanie wartości, nie gwarantuje identycznej kolejności wzg. dodawania elementu.
+            //Będzie bardo dobrze wiedział jak pracować z typami wartości /int, double, dateTime.../ (wie jak je porównać)
+            HashSet<int> setNumbers = new HashSet<int>();
+            setNumbers.Add(1);
+            setNumbers.Add(2);
+            setNumbers.Add(3);
+            setNumbers.Add(4);
+            setNumbers.Add(5);
+            setNumbers.Add(6);
+            setNumbers.Add(7);
+            setNumbers.Add(8);
+            setNumbers.Add(9);
+            setNumbers.Add(10);
+            bool result = false;
+
+            for (int i = 1; i < 100; i++)
+            {
+                result = setNumbers.Add(i);
+                Console.WriteLine($"Czy udało się dodać liczbę: {i} do setu? {result}");
+            }
+
+            #endregion 
+
+            #region HashSet <Employee>
+            HashSet<Employee> employeesHashSet = new HashSet<Employee>();
+
+            var employee1 = new Employee { FirstName = "Tomasz", LastName = "Nowak" };
+
+            employeesHashSet.Add(new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            employeesHashSet.Add(new Employee { FirstName = "Jan", LastName = "Kowalski" }); // domyśnie pozwoli dodać, ponieważ są to inne(new) obiekty
+            employeesHashSet.Add(employee1);
+            employeesHashSet.Add(employee1); // w tym przypadku nie będzie dubla ponieważ dodajemy ten sam obiekt
+            employeesHashSet.Add(new Employee { FirstName = "Ela", LastName = "Zawadzka" });
+
+
+            foreach (var item in employeesHashSet)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            #endregion
         }
 
         private static void Array()
@@ -53,21 +98,20 @@ namespace _2_GenericCollections
                 new Employee { FirstName = "Ela", LastName = "Zawadzka" },
             };
 
-            foreach (var employee in employees)
 
-                employessList.Add(new Employee { FirstName = "Ania", LastName = "Kot" });
+            employessList.Add(new Employee { FirstName = "Ania", LastName = "Kot" });
 
             foreach (var employee in employessList)
             {
                 Console.WriteLine(employee.FirstName + " " + employee.LastName);
             }
 
-            for (int i = 0; i < employees.Length; i++)
-                for (int i = 0; i < employessList.Count; i++)
-                {
-                    Console.WriteLine(employees[i].FirstName + " - " + employees[i].LastName);
-                    Console.WriteLine(employessList[i].FirstName + " - " + employessList[i].LastName);
-                }
+
+            for (int i = 0; i < employessList.Count; i++)
+            {
+
+                Console.WriteLine(employessList[i].FirstName + " - " + employessList[i].LastName);
+            }
         }
 
         private static void Stack()

@@ -12,8 +12,47 @@ namespace _2_GenericCollections
             //Queue();
             //Stack();
             //HashSet();
+            //LinkedList();
+            //LinkedListNodeExample();
 
-            
+        }
+
+        private static void LinkedListNodeExample()
+        {
+            LinkedList<int> listInt = new LinkedList<int>();
+            listInt.AddFirst(5);
+            listInt.AddFirst(6);
+            listInt.AddFirst(7);
+
+            var firstElement = listInt.First;
+            var lastElement = listInt.Last;
+
+
+            listInt.AddAfter(firstElement, 10);
+            listInt.AddBefore(firstElement, 50);
+
+            var node = listInt.First;
+
+            while (node != null)
+            {
+                Console.WriteLine(node.Value);
+                node = node.Next;
+            }
+        }
+
+        private static void LinkedList()
+        {
+            LinkedList<int> listInt = new LinkedList<int>();
+            listInt.AddFirst(5);
+            listInt.AddFirst(6);
+            listInt.AddFirst(7);
+            listInt.AddLast(1);
+            listInt.AddLast(2);
+
+            foreach (var item in listInt)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void HashSet()

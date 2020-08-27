@@ -17,7 +17,46 @@ namespace _2_GenericCollections
             //Dictionary();
             //SortetDictionary();
             //SortedList();
+            //SortedSet();
 
+        }
+
+        private static void SortedSet()
+        {
+            var set = new SortedSet<int>();
+
+            set.Add(7);
+            set.Add(66);
+            set.Add(32);
+            set.Add(4);
+            set.Add(4);
+            set.Add(2);
+            set.Add(1);
+            set.Add(5);
+            set.Add(3);
+
+            foreach (var item in set)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            var set2 = new SortedSet<string>();
+
+            set2.Add("ewa");
+            set2.Add("piotrek");
+            set2.Add("alan");
+            set2.Add("zbigniew");
+            set2.Add("tadeusz");
+            set2.Add("ewelina");
+            set2.Add("adam");
+            set2.Add("urszula");
+            set2.Add("monika");
+
+            foreach (var item in set2)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void SortedList()

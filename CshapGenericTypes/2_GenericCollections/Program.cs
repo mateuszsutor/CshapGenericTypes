@@ -14,8 +14,12 @@ namespace _2_GenericCollections
             //HashSet();
             //LinkedList();
             //LinkedListNodeExample();
+            //Dictionary();
 
+        }
 
+        private static void Dictionary()
+        {
             // w javie Mapa, Key - musi być unikalny
             //Dictionary<string, Employee> employees = new Dictionary<string, Employee>();
 
@@ -47,8 +51,6 @@ namespace _2_GenericCollections
             {
                 Console.WriteLine(employee.ToString());
             }
-           
-
         }
 
         private static void LinkedListNodeExample()

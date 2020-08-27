@@ -16,6 +16,35 @@ namespace _2_GenericCollections
             //LinkedListNodeExample();
             //Dictionary();
 
+
+            var employees = new SortedDictionary<string, List<Employee>>();
+
+            employees.Add("Sprzedaż", new List<Employee> { new Employee { FirstName = "Jan", LastName = "Kowalski" },
+                                                           new Employee { FirstName = "Bartosz", LastName = "Nowak" },
+                                                           new Employee { FirstName = "Marek", LastName = "Kot" }});
+
+
+            employees.Add("Informatyka", new List<Employee> { new Employee { FirstName = "Marcin", LastName = "Lutek" },
+                                                              new Employee { FirstName = "Anna", LastName = "Zawadzka" }});
+
+
+            employees.Add("Księgowość", new List<Employee> { new Employee { FirstName = "Renata", LastName = "Wyszko" },
+                                                             new Employee { FirstName = "Elżbieta", LastName = "Karaś" },
+                                                             new Employee { FirstName = "Halina", LastName = "Prusak" },
+                                                             new Employee { FirstName = "Marta", LastName = "Anieli" }});
+
+            foreach (var item in employees)
+            {
+                Console.WriteLine($"Ilośc pracowników w dziale {item.Key} wynosi {item.Value.Count}");
+
+                Console.WriteLine($"Dział: {item.Key}");
+                foreach (var employe in item.Value)
+                {
+                    Console.WriteLine($"Pracownik: {employe.FirstName} {employe.LastName}");
+                }
+                Console.WriteLine();
+            }
+
         }
 
         private static void Dictionary()

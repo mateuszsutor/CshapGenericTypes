@@ -15,6 +15,32 @@ namespace _2_GenericCollections
             //LinkedList();
             //LinkedListNodeExample();
 
+
+            // w javie Mapa, Key - musi być unikalny
+
+            //Dictionary<string, Employee> employees = new Dictionary<string, Employee>();
+
+            var employees = new Dictionary<string, Employee>();
+
+
+
+            employees.Add("Nowak", new Employee { FirstName = "Marek", LastName = "Nowak" });
+            employees.Add("Kowalski", new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            //employees.Add("Kowalski", new Employee { FirstName = "Antoni", LastName = "Kowalski" }); // nie mozna dubli dodawać
+            employees.Add("Dudek", new Employee { FirstName = "Jerzy", LastName = "Dudek" });
+
+            var kowalski = employees["Kowalski"];
+
+            Console.WriteLine(kowalski.ToString());
+            Console.WriteLine();
+
+
+            foreach (var item in employees)
+            {
+                Console.WriteLine($"Pracownik: {item.Value.FirstName} {item.Value.LastName}");
+                Console.WriteLine("metoda ToString:" + item.Value.ToString());
+            }
+
         }
 
         private static void LinkedListNodeExample()

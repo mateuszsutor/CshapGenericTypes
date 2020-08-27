@@ -17,29 +17,37 @@ namespace _2_GenericCollections
 
 
             // w javie Mapa, Key - musi być unikalny
-
             //Dictionary<string, Employee> employees = new Dictionary<string, Employee>();
 
-            var employees = new Dictionary<string, Employee>();
+            var employees = new Dictionary<string, List<Employee>>();
+
+            employees.Add("Kadry", new List<Employee>() { new Employee { FirstName = "Marek", LastName = "Nowak" } });
+            employees["Kadry"].Add(new Employee { FirstName = "Joanna", LastName = "Nowak" });
+            employees["Kadry"].Add(new Employee { FirstName = "Marta", LastName = "Nowak" });
 
 
-
-            employees.Add("Nowak", new Employee { FirstName = "Marek", LastName = "Nowak" });
-            employees.Add("Kowalski", new Employee { FirstName = "Jan", LastName = "Kowalski" });
-            //employees.Add("Kowalski", new Employee { FirstName = "Antoni", LastName = "Kowalski" }); // nie mozna dubli dodawać
-            employees.Add("Dudek", new Employee { FirstName = "Jerzy", LastName = "Dudek" });
-
-            var kowalski = employees["Kowalski"];
-
-            Console.WriteLine(kowalski.ToString());
-            Console.WriteLine();
+            employees.Add("Ksiegowosc", new List<Employee>() { new Employee { FirstName = "Jan", LastName = "Kowalski" },
+                                                               new Employee { FirstName = "Bartosz", LastName = "Kowalski"},
+                                                               new Employee { FirstName = "Marek", LastName = "Kowalski" }});
 
 
             foreach (var item in employees)
             {
-                Console.WriteLine($"Pracownik: {item.Value.FirstName} {item.Value.LastName}");
-                Console.WriteLine("metoda ToString:" + item.Value.ToString());
+                Console.WriteLine("Dział " + item.Key);
+                foreach (var employee in item.Value)
+                {
+                    Console.WriteLine(employee.FirstName + " " + employee.LastName);
+                }
+                Console.WriteLine();
+
             }
+            Console.WriteLine("Pracowwnicy ksiegowosci (employees[Ksiegowosc])");
+
+            foreach (var employee in employees["Ksiegowosc"])
+            {
+                Console.WriteLine(employee.ToString());
+            }
+           
 
         }
 

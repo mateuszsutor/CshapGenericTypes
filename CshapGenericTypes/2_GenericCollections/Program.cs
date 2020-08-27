@@ -15,8 +15,29 @@ namespace _2_GenericCollections
             //LinkedList();
             //LinkedListNodeExample();
             //Dictionary();
+            //SortetDictionary();
+            //SortedList();
 
+        }
 
+        private static void SortedList()
+        {
+            var sortedList = new SortedList<int, string>();
+
+            sortedList.Add(7, "siedem");
+            sortedList.Add(3, "trzy");
+            sortedList.Add(1, "jeden");
+            sortedList.Add(4, "cztery");
+            sortedList.Add(2, "dwa");
+
+            foreach (var item in sortedList)
+            {
+                Console.WriteLine(item.Value);
+            }
+        }
+
+        private static void SortetDictionary()
+        {
             var employees = new SortedDictionary<string, List<Employee>>();
 
             employees.Add("Sprzedaż", new List<Employee> { new Employee { FirstName = "Jan", LastName = "Kowalski" },
@@ -44,7 +65,6 @@ namespace _2_GenericCollections
                 }
                 Console.WriteLine();
             }
-
         }
 
         private static void Dictionary()

@@ -1,26 +1,35 @@
-﻿namespace _3_GenericClassAndInterfaces
-{
-    internal class BigQueue<T> : IQueue<T>
-    {
-        private int capacity;
+﻿using System.Collections.Generic;
 
-        public BigQueue(int capacity)
+namespace _3_GenericClassAndInterfaces
+{
+    public class BigQueue<T> : IQueue<T>
+    {
+
+        Queue<T> queue;
+
+        public BigQueue()
         {
-            this.capacity = capacity;
+            queue = new Queue<T>();
         }
 
-        public bool IsEmpty => throw new System.NotImplementedException();
-
         public bool IsFull => throw new System.NotImplementedException();
+        
+        public bool IsEmpty 
+        {
+            get 
+            {
+                return queue.Count == 0;
+            }
+        }
 
         public T ReadValue()
         {
-            throw new System.NotImplementedException();
+           return queue.Dequeue();
         }
 
         public void SaveValue(T value)
         {
-            throw new System.NotImplementedException();
+            queue.Enqueue(value);
         }
     }
 }

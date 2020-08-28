@@ -13,7 +13,17 @@ namespace _3_GenericClassAndInterfaces
             var queue = new CircleQueue<double>();
 
             InputData(queue);
+
+            Console.WriteLine("Elemeny dla których zostanie wykonane sumowanie");
+            foreach (var item in queue)
+            {
+                Console.Write(item + ", ");
+            }
+            Console.WriteLine();
             ProcessingData(queue);
+
+         
+
 
             Console.ReadKey();
         }
@@ -21,7 +31,7 @@ namespace _3_GenericClassAndInterfaces
         private static void ProcessingData(IQueue<double> queue)
         {
             var sum = 0.0;
-            Console.WriteLine("W naszej kolejce znajdują się: ");
+            Console.WriteLine("Suma wszystkich elementów znajdujących się w naszej kolejce to: ");
 
             while (!queue.IsEmpty)
             {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace _3_GenericClassAndInterfaces
 {
@@ -21,6 +22,27 @@ namespace _3_GenericClassAndInterfaces
                 return queue.Count == 0;
             }
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            // 1 sposób
+
+            return queue.GetEnumerator();
+
+            // 2 sposób
+            //foreach (var item in queue)
+            //{
+            //    //filtrowanie
+            //    yield return item;
+            //}
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+
 
         public virtual T ReadValue()
         {

@@ -10,7 +10,7 @@ namespace _3_GenericClassAndInterfaces
     {
         static void Main(string[] args)
         {
-            var queue = new BigQueue<double>();
+            var queue = new CircleQueue<double>();
 
             InputData(queue);
             ProcessingData(queue);

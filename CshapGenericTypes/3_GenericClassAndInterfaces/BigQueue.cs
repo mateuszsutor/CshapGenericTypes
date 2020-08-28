@@ -5,16 +5,16 @@ namespace _3_GenericClassAndInterfaces
     public class BigQueue<T> : IQueue<T>
     {
 
-        Queue<T> queue;
+        protected Queue<T> queue;
 
         public BigQueue()
         {
             queue = new Queue<T>();
         }
 
-        public bool IsFull => throw new System.NotImplementedException();
+        public virtual bool IsFull => throw new System.NotImplementedException();
         
-        public bool IsEmpty 
+        public virtual bool IsEmpty 
         {
             get 
             {
@@ -22,12 +22,12 @@ namespace _3_GenericClassAndInterfaces
             }
         }
 
-        public T ReadValue()
+        public virtual T ReadValue()
         {
            return queue.Dequeue();
         }
 
-        public void SaveValue(T value)
+        public virtual void SaveValue(T value)
         {
             queue.Enqueue(value);
         }

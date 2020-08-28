@@ -7,66 +7,31 @@ using System.Threading.Tasks;
 namespace _3_GenericClassAndInterfaces
 {
 
-    class CircleQueue<T> : IQueue<T>
+    public class CircleQueue<T> : BigQueue<T>
     {
-        private T[] buffer;
-        private int startBuffer;
-        private int endBuffer;
+        private int _capacity;
 
-        public CircleQueue() : this(capacity: 5)
+        public CircleQueue(int capacity = 5)
         {
-
+            _capacity = capacity;
         }
 
-        public CircleQueue(int capacity)
+        public override void SaveValue(T value)
         {
-            buffer = new T[capacity + 1];
-            startBuffer = 0;
-            endBuffer = 0;
-        }
-
-        public void SaveValue(T value)
-        {
-            buffer[endBuffer] = value;
-            endBuffer = (endBuffer + 1) % buffer.Length;
-
-            if (endBuffer == startBuffer)
+            base.SaveValue(value);
+            
+            if (queue.Count > _capacity)
             {
-                startBuffer = (startBuffer + 1) % buffer.Length;
-            }
-
-        }
-
-        public T ReadValue()
-        {
-            var result = buffer[startBuffer];
-            startBuffer = (startBuffer + 1) % buffer.Length;
-
-            return result;
-        }
-
-        public int BufferCapacity
-        {
-            get
-            {
-                return buffer.Length;
+                queue.Dequeue();
             }
         }
 
-        public bool IsEmpty
+        public override bool IsFull 
         {
-            get
+            get 
             {
-                return endBuffer == startBuffer;
+                return queue.Count == _capacity;
             }
-        }
-
-        public bool IsFull
-        {
-            get
-            {
-                return (endBuffer + 1) % buffer.Length == startBuffer;
-            }
-        }
+        } 
     }
 }

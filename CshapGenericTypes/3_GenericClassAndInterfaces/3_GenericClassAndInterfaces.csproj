@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BigQueue.cs" />
     <Compile Include="CircleQueue.cs" />
     <Compile Include="IQueue.cs" />
     <Compile Include="Program.cs" />

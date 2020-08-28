@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _3_GenericClassAndInterfaces
 {
-    class CircleQueue<T>
+
+    class CircleQueue<T> : IQueue<T>
     {
         private T[] buffer;
         private int startBuffer;

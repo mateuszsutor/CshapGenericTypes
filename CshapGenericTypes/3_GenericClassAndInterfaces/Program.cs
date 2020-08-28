@@ -10,7 +10,7 @@ namespace _3_GenericClassAndInterfaces
     {
         static void Main(string[] args)
         {
-            var queue = new CircleQueue<double>(capacity: 3);
+            var queue = new CircleQueue<double>(capacity: 5);
 
             InputData(queue);
             ProcessingData(queue);
@@ -18,7 +18,7 @@ namespace _3_GenericClassAndInterfaces
             Console.ReadKey();
         }
 
-        private static void ProcessingData(CircleQueue<double> queue)
+        private static void ProcessingData(IQueue<double> queue)
         {
             var sum = 0.0;
             Console.WriteLine("W naszej kolejce znajdują się: ");
@@ -50,7 +50,7 @@ namespace _3_GenericClassAndInterfaces
             Console.WriteLine(sum);
         }
 
-        private static void InputData(CircleQueue<double> queue)
+        private static void InputData(IQueue<double> queue)
         {
             while (true)
             {

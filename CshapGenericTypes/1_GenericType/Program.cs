@@ -40,7 +40,7 @@ namespace _1_GenericType
             //    var person = pesonsQueue.ReadValue().FirstName;
             //    Console.WriteLine(person);
             //}
-
+            // TestKomentGit
             #endregion
 
             Console.WriteLine(sum);

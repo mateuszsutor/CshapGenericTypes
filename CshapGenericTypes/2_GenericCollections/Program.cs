@@ -19,23 +19,27 @@ namespace _2_GenericCollections
             //SortedList();
             //SortedSet();
 
-            var employees = new SortedDictionary<string, SortedSet<Employee>>();
-            
-            employees.Add("Sprzedaż", new SortedSet<Employee>(new EmployeeComparer()));
+            var employees = new DepartmentCollection();
 
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Jakub", LastName = "Nowak" });
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Anna", LastName = "Cięciel" });
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Piotr", LastName = "Krzystanek" });
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Dominik", LastName = "Krzystanek" });
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Dominik", LastName = "Krzystanek" });
-            employees["Sprzedaż"].Add(new Employee { FirstName = "Adam", LastName = "Krzystanek" });
 
             employees.Add("Księgowość", new SortedSet<Employee>(new EmployeeComparer()));
 
+            // dodawanie spos 1
             employees["Księgowość"].Add(new Employee { FirstName = "Jan", LastName = "Kowalski" });
             employees["Księgowość"].Add(new Employee { FirstName = "Barbara", LastName = "Nowak" });
             employees["Księgowość"].Add(new Employee { FirstName = "Urszula", LastName = "Stanek" });
             employees["Księgowość"].Add(new Employee { FirstName = "Bartosz", LastName = "Jarema" });
+
+
+            // dodawanie spos 2
+            employees.Add("Sprzedać", new Employee { FirstName = "Anna", LastName = "Cięciel" })
+                     .Add("Sprzedać", new Employee { FirstName = "Piotr", LastName = "Krzystanek" })
+                     .Add("Sprzedać", new Employee { FirstName = "Jakub", LastName = "Nowak" })
+                     .Add("Sprzedać", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
+                     .Add("Sprzedać", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
+                     .Add("Sprzedać", new Employee { FirstName = "Adam", LastName = "Krzystanek" });
+
+
 
 
 
@@ -45,10 +49,10 @@ namespace _2_GenericCollections
 
                 foreach (var employee in department.Value)
                 {
-                    Console.WriteLine("\t" + employee.LastName +" "+ employee.FirstName);
+                    Console.WriteLine("\t" + employee.LastName + " " + employee.FirstName);
                 }
             }
-            
+
         }
 
         private static void SortedSet()

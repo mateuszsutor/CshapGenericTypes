@@ -19,6 +19,36 @@ namespace _2_GenericCollections
             //SortedList();
             //SortedSet();
 
+            var employees = new SortedDictionary<string, SortedSet<Employee>>();
+            
+            employees.Add("Sprzedaż", new SortedSet<Employee>(new EmployeeComparer()));
+
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Jakub", LastName = "Nowak" });
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Anna", LastName = "Cięciel" });
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Piotr", LastName = "Krzystanek" });
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Dominik", LastName = "Krzystanek" });
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Dominik", LastName = "Krzystanek" });
+            employees["Sprzedaż"].Add(new Employee { FirstName = "Adam", LastName = "Krzystanek" });
+
+            employees.Add("Księgowość", new SortedSet<Employee>(new EmployeeComparer()));
+
+            employees["Księgowość"].Add(new Employee { FirstName = "Jan", LastName = "Kowalski" });
+            employees["Księgowość"].Add(new Employee { FirstName = "Barbara", LastName = "Nowak" });
+            employees["Księgowość"].Add(new Employee { FirstName = "Urszula", LastName = "Stanek" });
+            employees["Księgowość"].Add(new Employee { FirstName = "Bartosz", LastName = "Jarema" });
+
+
+
+            foreach (var department in employees)
+            {
+                Console.WriteLine(department.Key);
+
+                foreach (var employee in department.Value)
+                {
+                    Console.WriteLine("\t" + employee.LastName +" "+ employee.FirstName);
+                }
+            }
+            
         }
 
         private static void SortedSet()

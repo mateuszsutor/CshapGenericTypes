@@ -31,7 +31,7 @@ namespace _3_GenericClassAndInterfaces
         private static void ProcessingData(IQueue<double> queue)
         {
             var sum = 0.0;
-            Console.WriteLine("Suma wszystkich elementów znajdujących się w naszej kolejce to: ");
+            Console.WriteLine("Suma wszystkich elementów znajdujących się w naszej kolejce to : ");
 
             while (!queue.IsEmpty)
             {

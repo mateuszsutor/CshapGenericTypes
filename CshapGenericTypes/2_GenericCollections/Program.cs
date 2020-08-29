@@ -32,12 +32,12 @@ namespace _2_GenericCollections
 
 
             // dodawanie spos 2
-            employees.Add("Sprzedać", new Employee { FirstName = "Anna", LastName = "Cięciel" })
-                     .Add("Sprzedać", new Employee { FirstName = "Piotr", LastName = "Krzystanek" })
-                     .Add("Sprzedać", new Employee { FirstName = "Jakub", LastName = "Nowak" })
-                     .Add("Sprzedać", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
-                     .Add("Sprzedać", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
-                     .Add("Sprzedać", new Employee { FirstName = "Adam", LastName = "Krzystanek" });
+            employees.Add("Sprzedaż", new Employee { FirstName = "Anna", LastName = "Cięciel" })
+                     .Add("Sprzedaż", new Employee { FirstName = "Piotr", LastName = "Krzystanek" })
+                     .Add("Sprzedaż", new Employee { FirstName = "Jakub", LastName = "Nowak" })
+                     .Add("Sprzedaż", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
+                     .Add("Sprzedaż", new Employee { FirstName = "Dominik", LastName = "Krzystanek" })
+                     .Add("Sprzedaż", new Employee { FirstName = "Adam", LastName = "Krzystanek" });
 
 
 

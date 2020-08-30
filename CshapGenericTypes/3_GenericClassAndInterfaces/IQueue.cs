@@ -2,7 +2,7 @@
 
 namespace _3_GenericClassAndInterfaces
 {
-    interface IQueue<T> : IEnumerable<T>
+    public interface IQueue<T> : IEnumerable<T>
     {
         bool IsEmpty { get; }
         bool IsFull { get; }
@@ -10,6 +10,6 @@ namespace _3_GenericClassAndInterfaces
         T ReadValue();
         void SaveValue(T value);
 
-        IEnumerable<Tout> SaveElementByNewType<Tout>();
+        
     }
 }

@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace _3_GenericClassAndInterfaces
+{
+    public static class QueueExtensions
+    {
+        public static IEnumerable<Tout> SaveElementByNewType<T, Tout>(this IQueue<T> queue)
+        {
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+
+            foreach (var item in queue)
+            {
+                var result = converter.ConvertTo(item, typeof(Tout));
+                yield return (Tout)result;
+
+            }
+
+        }
+
+
+
+        public static void Print<T>(this IQueue<T> queue)
+        {
+            foreach (var item in queue)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
+    }
+}

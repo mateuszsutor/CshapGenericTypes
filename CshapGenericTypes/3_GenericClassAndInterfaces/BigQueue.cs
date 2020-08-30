@@ -28,14 +28,14 @@ namespace _3_GenericClassAndInterfaces
         {
             // 1 sposób
 
-            return queue.GetEnumerator();
+            //return queue.GetEnumerator();
 
-            // 2 sposób
-            //foreach (var item in queue)
-            //{
-            //    //filtrowanie
-            //    yield return item;
-            //}
+            //2 sposób
+            foreach (var item in queue)
+            {
+                //filtrowanie
+                yield return item;
+            }
         }
 
 
@@ -55,19 +55,6 @@ namespace _3_GenericClassAndInterfaces
         public virtual void SaveValue(T value)
         {
             queue.Enqueue(value);
-        }
-
-        public IEnumerable<Tout> SaveElementByNewType<Tout>()
-        {
-            var converter = TypeDescriptor.GetConverter(typeof(T));
-
-            foreach (var item in queue)
-            {
-                var result = converter.ConvertTo(item, typeof(Tout));
-                yield return (Tout)result;
-
-            }
-            
         }
     }
 }

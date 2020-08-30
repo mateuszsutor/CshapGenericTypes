@@ -14,8 +14,10 @@ namespace _3_GenericClassAndInterfaces
 
             InputData(queue);
 
+            var elementByInt = queue.SaveElementByNewType<string>();
+
             Console.WriteLine("Elemeny dla których zostanie wykonane sumowanie");
-            foreach (var item in queue)
+            foreach (var item in elementByInt)
             {
                 Console.Write(item + ", ");
             }

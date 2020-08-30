@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace _3_GenericClassAndInterfaces
 {
@@ -37,6 +38,8 @@ namespace _3_GenericClassAndInterfaces
             //}
         }
 
+
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -52,6 +55,19 @@ namespace _3_GenericClassAndInterfaces
         public virtual void SaveValue(T value)
         {
             queue.Enqueue(value);
+        }
+
+        public IEnumerable<Tout> SaveElementByNewType<Tout>()
+        {
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+
+            foreach (var item in queue)
+            {
+                var result = converter.ConvertTo(item, typeof(Tout));
+                yield return (Tout)result;
+
+            }
+            
         }
     }
 }

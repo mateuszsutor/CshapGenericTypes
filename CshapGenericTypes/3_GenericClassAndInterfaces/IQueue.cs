@@ -9,5 +9,7 @@ namespace _3_GenericClassAndInterfaces
 
         T ReadValue();
         void SaveValue(T value);
+
+        IEnumerable<Tout> SaveElementByNewType<Tout>();
     }
 }

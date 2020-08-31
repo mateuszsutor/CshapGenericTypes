@@ -6,6 +6,8 @@ namespace _3_GenericClassAndInterfaces
 {
     public static class QueueExtensions
     {
+        public delegate void Printer<T>(T data);
+
         public static IEnumerable<Tout> SaveElementByNewType<T, Tout>(this IQueue<T> queue)
         {
             var converter = TypeDescriptor.GetConverter(typeof(T));
@@ -21,11 +23,11 @@ namespace _3_GenericClassAndInterfaces
 
 
 
-        public static void Print<T>(this IQueue<T> queue)
+        public static void Print<T>(this IQueue<T> queue,Printer<T> printout)
         {
             foreach (var item in queue)
             {
-                Console.WriteLine(item);
+                printout(item);
             }
         }
 

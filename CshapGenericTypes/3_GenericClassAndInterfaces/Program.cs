@@ -3,26 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static _3_GenericClassAndInterfaces.QueueExtensions;
 
 namespace _3_GenericClassAndInterfaces
 {
     class Program
     {
+        static void consoleWriter(double data)
+        {
+            Console.WriteLine(data);
+        }
+
         static void Main(string[] args)
         {
             var queue = new CircleQueue<double>();
 
             InputData(queue);
 
-            queue.Print();
+            var consoleOut = new Printer<double>(consoleWriter);
 
-            var elementByInt = queue.SaveElementByNewType<double, int>();
+            queue.Print(consoleOut);
 
-            Console.WriteLine("Elemeny dla których zostanie wykonane sumowanie");
-            foreach (var item in elementByInt)
-            {
-                Console.Write(item + ", ");
-            }
+            //var elementByInt = queue.SaveElementByNewType<double, int>();
+
+            //Console.WriteLine("Elemeny dla których zostanie wykonane sumowanie");
+            //foreach (var item in elementByInt)
+            //{
+            //    Console.Write(item + ", ");
+            //}
             Console.WriteLine();
             ProcessingData(queue);
 

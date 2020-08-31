@@ -9,33 +9,27 @@ namespace _3_GenericClassAndInterfaces
 {
     class Program
     {
-        static void consoleWriter(double data)
-        {
-            Console.WriteLine(data);
-        }
 
         static void Main(string[] args)
         {
+            //Action<double> printing = delegate (double data)
+            //{
+            //    Console.WriteLine(data);
+            //};
+
+            Action<double> printing = x => Console.WriteLine(x);
+            printing(7.89);
+
+            Action<int, int, int> testSum = (a, b, c) => Console.WriteLine(a + b + c);
+            testSum(1,2,3);
+
             var queue = new CircleQueue<double>();
 
             InputData(queue);
 
-            var consoleOut = new Printer<double>(consoleWriter);
+            queue.Print(p => Console.WriteLine(p));
 
-            queue.Print(consoleOut);
-
-            //var elementByInt = queue.SaveElementByNewType<double, int>();
-
-            //Console.WriteLine("Elemeny dla których zostanie wykonane sumowanie");
-            //foreach (var item in elementByInt)
-            //{
-            //    Console.Write(item + ", ");
-            //}
-            Console.WriteLine();
             ProcessingData(queue);
-
-         
-
 
             Console.ReadKey();
         }
